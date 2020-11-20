@@ -1,8 +1,7 @@
 import * as type from "./actionTypes";
 
-export function getUsers(users) {
+export function getUsers() {
   return {
-    type: type.GET_USERS,
-    payload: users,
+    type: type.GET_USERS_REQUESTED,
   };
 }

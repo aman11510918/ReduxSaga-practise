@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+.mainContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  width: 80px;
+  height: 80px;
+  margin: 50px auto;
+  position: relative;
+  z-index: 2;
+}
+.ball-1 {
+  height: 20%;
+  width: 20%;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  z-index: 3;
+  animation: shrink 4.5s infinite linear;
+}
+.ball-1:before {
+  content: "";
+  background: #eeb60a;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+}
+.ball-2,
+.ball-3{
+  position: absolute;
+  /* background: rgba(0,0,255,.5); */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 20px;
+}
+.ball-2:before,
+.ball-3:before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #070b4d;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+}
+.ball-2 {
+  transform: rotate(-45deg);
+  animation: zindex 1.5s 0.75s infinite steps(2, end);
+}
+.ball-3 {
+  transform: rotate(-45deg);
+  animation: zindex 1.5s 0s infinite steps(2, end);
+}
+.ball-2:before {
+  transform: rotate(0);
+  animation: position 1.5s infinite ease, size 1.5s -1.125s infinite ease;
+}
+.ball-3:before {
+  animation: position 1.5s -0.75s infinite ease,
+    size 1.5s -0.5625s infinite ease;
+}
+@keyframes position {
+  50% {
+    top: 40px;
+    left: 40px;
+  }
+}
+@keyframes size {
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+}
+@keyframes zindex {
+  100% {
+    z-index: 10;
+  }
+}
+@keyframes shrink {
+  50% {
+    transform: scale(0.9, 0.9);
+  }
+}
